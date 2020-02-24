@@ -25,7 +25,7 @@ function App() {
         onAuthRequired={onAuthRequired}
         pkce={true} >
         {/* <div className="App"> */}
-          <SecureRoute path="process.env.PUBLIC_URL" exact={true} component={Welcome}></SecureRoute>
+          <SecureRoute path={process.env.PUBLIC_URL} exact={true} component={Welcome}></SecureRoute>
           <Route path={process.env.PUBLIC_URL + '/login'} render={() => <Login baseUrl='https://dev-421319.okta.com' />} />
           <Route path={process.env.PUBLIC_URL +'/implicit/callback'} component={ImplicitCallback} />
           <Route path={process.env.PUBLIC_URL + '/user'} component={User}></Route>

@@ -18,7 +18,7 @@ function onAuthRequired({ history }) {
 
 function App() {
   return (
-    <Router>
+    <Router basename={window.location.pathname || ''}>
       <Security Security issuer='https://dev-421319.okta.com/oauth2/default'
         clientId='0oa2de4uv9SXNxF4Z4x6'
         redirectUri={window.location.origin + '/implicit/callback'}

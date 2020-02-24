@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/imenu-admin/static/css/main.710cea22.chunk.css",
-    "main.js": "/imenu-admin/static/js/main.9e8b9d5e.chunk.js",
-    "main.js.map": "/imenu-admin/static/js/main.9e8b9d5e.chunk.js.map",
+    "main.js": "/imenu-admin/static/js/main.abb99449.chunk.js",
+    "main.js.map": "/imenu-admin/static/js/main.abb99449.chunk.js.map",
     "runtime-main.js": "/imenu-admin/static/js/runtime-main.96fff428.js",
     "runtime-main.js.map": "/imenu-admin/static/js/runtime-main.96fff428.js.map",
     "static/css/2.e3d692b7.chunk.css": "/imenu-admin/static/css/2.e3d692b7.chunk.css",
     "static/js/2.ce73741e.chunk.js": "/imenu-admin/static/js/2.ce73741e.chunk.js",
     "static/js/2.ce73741e.chunk.js.map": "/imenu-admin/static/js/2.ce73741e.chunk.js.map",
     "index.html": "/imenu-admin/index.html",
-    "precache-manifest.05123317d2a32fb2f16248852255a236.js": "/imenu-admin/precache-manifest.05123317d2a32fb2f16248852255a236.js",
+    "precache-manifest.ed8e78ca40db1eab98f2102c2e4e990f.js": "/imenu-admin/precache-manifest.ed8e78ca40db1eab98f2102c2e4e990f.js",
     "service-worker.js": "/imenu-admin/service-worker.js",
     "static/css/2.e3d692b7.chunk.css.map": "/imenu-admin/static/css/2.e3d692b7.chunk.css.map",
     "static/css/main.710cea22.chunk.css.map": "/imenu-admin/static/css/main.710cea22.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.e3d692b7.chunk.css",
     "static/js/2.ce73741e.chunk.js",
     "static/css/main.710cea22.chunk.css",
-    "static/js/main.9e8b9d5e.chunk.js"
+    "static/js/main.abb99449.chunk.js"
   ]
 }

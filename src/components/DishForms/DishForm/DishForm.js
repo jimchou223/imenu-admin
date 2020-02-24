@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import classes from './DishForm.module.css'
 
-const URL = "http://localhost:3001"
+const URL = " https://jimchou223.github.io/imenu-server"
 
 class Dishform extends Component {
     state = {

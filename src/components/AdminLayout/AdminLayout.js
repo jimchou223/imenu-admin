@@ -8,7 +8,7 @@ import classes from './AdminLayout.module.css'
 
 // import Aux from '../../hoc/Aux'
 
-const URL = "http://localhost:3001"
+const URL = " https://jimchou223.github.io/imenu-server"
 
 class Layout extends Component {
 

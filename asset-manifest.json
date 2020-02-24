@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/imenu/static/css/main.710cea22.chunk.css",
+    "main.js": "/imenu/static/js/main.545d458e.chunk.js",
+    "main.js.map": "/imenu/static/js/main.545d458e.chunk.js.map",
+    "runtime-main.js": "/imenu/static/js/runtime-main.357a10aa.js",
+    "runtime-main.js.map": "/imenu/static/js/runtime-main.357a10aa.js.map",
+    "static/css/2.8178e627.chunk.css": "/imenu/static/css/2.8178e627.chunk.css",
+    "static/js/2.e162b011.chunk.js": "/imenu/static/js/2.e162b011.chunk.js",
+    "static/js/2.e162b011.chunk.js.map": "/imenu/static/js/2.e162b011.chunk.js.map",
+    "index.html": "/imenu/index.html",
+    "precache-manifest.b6f76c63f0419b14f14e3418b92cd924.js": "/imenu/precache-manifest.b6f76c63f0419b14f14e3418b92cd924.js",
+    "service-worker.js": "/imenu/service-worker.js",
+    "static/css/2.8178e627.chunk.css.map": "/imenu/static/css/2.8178e627.chunk.css.map",
+    "static/css/main.710cea22.chunk.css.map": "/imenu/static/css/main.710cea22.chunk.css.map",
+    "static/js/2.e162b011.chunk.js.LICENSE.txt": "/imenu/static/js/2.e162b011.chunk.js.LICENSE.txt",
+    "static/media/okta-sign-in.min.css": "/imenu/static/media/yubikeyDemo.f10c9db1.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.357a10aa.js",
+    "static/css/2.8178e627.chunk.css",
+    "static/js/2.e162b011.chunk.js",
+    "static/css/main.710cea22.chunk.css",
+    "static/js/main.545d458e.chunk.js"
+  ]
+}

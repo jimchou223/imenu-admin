@@ -25,11 +25,11 @@ function App() {
         onAuthRequired={onAuthRequired}
         pkce={true} >
         {/* <div className="App"> */}
-          <SecureRoute path="/" exact={true} component={Welcome}></SecureRoute>
-          <Route path='/login' render={() => <Login baseUrl='https://dev-421319.okta.com' />} />
-          <Route path='/implicit/callback' component={ImplicitCallback} />
-          <Route path='/user' component={User}></Route>
-          <Route path='/admin' component={Admin}></Route>
+          <SecureRoute basename="/" exact={true} component={Welcome}></SecureRoute>
+          <Route basename='/login' render={() => <Login baseUrl='https://dev-421319.okta.com' />} />
+          <Route basename='/implicit/callback' component={ImplicitCallback} />
+          <Route basename='/user' component={User}></Route>
+          <Route basename='/admin' component={Admin}></Route>
         {/* </div> */}
       </Security>
     </Router>

@@ -1,0 +1,25 @@
+.DishForms {
+    width: 70%;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.Loading {
+    /* background-color: aquamarine; */
+    padding: 16px;
+    text-align: center;
+}
+
+.DishForms h2{
+    /* background-color: aquamarine; */
+    padding: 16px;
+    text-align: center;
+}
+
+.DishForms h2:hover{
+    background-color: lightgreen;
+}
+
+.DishForms form{
+    padding: 16px;
+}

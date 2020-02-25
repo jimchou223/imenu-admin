@@ -25,11 +25,11 @@ function App() {
         onAuthRequired={onAuthRequired}
         pkce={true} >
         {/* <div className="App"> */}
-          <SecureRoute path="https://lindongimenu.netlify.com" exact={true} component={Welcome}></SecureRoute>
-          <Route path='https://lindongimenu.netlify.com/login' render={() => <Login baseUrl='https://dev-421319.okta.com' />} />
-          <Route path='https://lindongimenu.netlify.com/implicit/callback' component={ImplicitCallback} />
-          <Route path='https://lindongimenu.netlify.com/user' component={User}></Route>
-          <Route path='https://lindongimenu.netlify.com/admin' component={Admin}></Route>
+          <SecureRoute path="/" exact={true} component={Welcome}></SecureRoute>
+          <Route path='/login' render={() => <Login baseUrl='https://dev-421319.okta.com' />} />
+          <Route path='/implicit/callback' component={ImplicitCallback} />
+          <Route path='/user' component={User}></Route>
+          <Route path='/admin' component={Admin}></Route>
         {/* </div> */}
       </Security>
     </Router>

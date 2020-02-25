@@ -2,7 +2,7 @@
 A menu management system using MERN stack
 ## Front end
 ReactJs
-## Bakc end
+## Back end
 Node.js
 ## Database
 MongoDB

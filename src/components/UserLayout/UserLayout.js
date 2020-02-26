@@ -5,7 +5,9 @@ class UserLayout extends Component {
     render() {
         return (
             <div>
-                Userlayout
+                <form>
+
+                </form>
             </div>
         )
     }

@@ -1,0 +1,107 @@
+.Welcome {
+    height: 100vh;
+    text-align: center;
+}
+
+.Wrapper {
+    display: flex;
+    width: 100%;
+    /* background-color: aqua; */
+    height: 40%;
+
+}
+
+.Header {
+    height: 15%;
+    font-size: 5em
+
+}
+
+.Wrapper a, .Wrapper a:hover {
+    text-decoration: none;
+    color: black
+}
+
+.UserButton {
+    background-color: lightblue ;
+    width: 30%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 3em;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AdminButton {
+    background-color: lightgreen;
+    width: 30%;
+    text-align: center;
+    font-size: 3em;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.UserButton:hover {
+    transition: 0.5s;
+    opacity: 0.8;
+    font-size: 5em;
+    text-decoration: none;
+    color: black
+}
+.AdminButton:hover {
+    transition: 0.5s;
+    opacity: 0.8;
+    font-size: 5em;
+    text-decoration: none;
+    color: black
+}
+
+.LogoutButton {
+    background-color: lightcoral;
+    width: 30%;
+    text-align: center;
+    font-size: 3em;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Wrapper {
+    justify-content: space-evenly
+}
+
+.Bottom {
+    width: 60%;
+    font-size: 3em;
+    height: 15%;
+    background-color: lightblue;
+}
+
+.LogoutButton:hover {
+    transition: 0.5s;
+    font-size: 5em;
+    opacity: 0.8;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+
+}
+
+@media only screen and (max-width: 500px) {
+    .Wrapper {
+        flex-flow: column;
+    }
+    .UserButton, .AdminButton, .LogoutButton {
+        width: auto;
+    }
+}

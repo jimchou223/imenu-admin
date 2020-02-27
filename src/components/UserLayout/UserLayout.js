@@ -1,14 +1,192 @@
 import React, { Component } from 'react'
 
+import axios from 'axios';
+
+import Results from '../Results/Results';
+
+import classes from './UserLayout.module.css';
+
+// const URL = "http://localhost:3001"
+const URL = "https://imenu-server.herokuapp.com"
+
+
 
 class UserLayout extends Component {
+    state = {
+        allSets: [],
+        allDishes: [],
+        chosenSet: '',
+        danger: '',
+        warning: '',
+        dangerSets: '',
+        warningSets: '',
+        ready: false
+    }
+
+    clearAll = () => {
+        this.setState({
+            chosenSet: '',
+            danger: '',
+            warning: '',
+            dangerSets: '',
+            warningSets: '',
+            ready: false,
+        })
+    }
+    clearSearch = () => {
+
+        const newArr = [...this.state.allDishes]
+        newArr.forEach(el => {
+            el.status = 'safe'
+        })
+        this.setState({
+            dangerSets: '',
+            warningSets: '',
+            ready: false,
+            allDishes: newArr,
+        })
+    }
+
+    onChangeHandler = (e) => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    findAllDishes = () => {
+        axios({
+            method: 'get',
+            url: URL + '/findalldishes',
+        })
+            .then((response) => {
+                const data = response.data
+
+                this.setState({ allDishes: data })
+            });
+    }
+
+    componentDidMount = () => {
+        this.findallSets()
+        this.findAllDishes()
+    }
+
+    findallSets = () => {
+        axios({
+            method: 'get',
+            url: URL + '/findallsets',
+        })
+            .then((response) => {
+                const data = response.data
+                this.setState({ allSets: data })
+            });
+    }
+
+    sendFetch = (set, ingredient, type) => {
+        axios({
+            method: 'post',
+            url: URL + '/filterdishes',
+            data: {
+                set: set,
+                ingredient: ingredient,
+                type: type
+            }
+        })
+            .then((response) => {
+                const data = response.data
+                const key = data[0];
+                data.shift();
+                this.setState({ [key]: data })
+            })
+            .then(() => {
+                this.verifyStatus(this.state.allDishes, this.state.warningSets, "warning")
+                this.verifyStatus(this.state.allDishes, this.state.dangerSets, "danger")
+            })
+            .then(() => {
+                this.setState({ ready: true })
+            })
+    }
+
+    submitHandler = (event) => {
+        event.preventDefault();
+        // this.clearSearch()
+        if (this.state.danger !== '') {
+            this.sendFetch(this.state.chosenSet, this.state.danger, 'danger')
+        }
+        if (this.state.warning !== '') {
+            this.sendFetch(this.state.chosenSet, this.state.warning, 'warning')
+        }
+    }
+
+    verifyStatus = (input, filter, type) => {
+        const newArr = [...input]
+        newArr.map(el => {
+            for (let i = 0; i < filter.length; i++) {
+                if (el._id === filter[i]._id) {
+                    el.status = type
+                    break;
+                } else if (el.status === "warning") {
+                    el.status = "warning"
+                } else {
+                    el.status = "safe"
+                }
+            }
+            return true;
+        })
+        this.setState({ input: newArr })
+
+    }
+
+
+
     render() {
+
+
+        const sortedArr = new Array(this.state.allSets.length)
+        for (let i = 0; i < this.state.allSets.length; i++) {
+            sortedArr[i] = []
+        }
+
+        for (let i = 0; i < this.state.allDishes.length; i++) {
+            for (let j = 0; j < this.state.allSets.length; j++) {
+                if (this.state.allDishes[i].setName === this.state.allSets[j]) {
+                    sortedArr[j].push(this.state.allDishes[i])
+                }
+            }
+        }
+
+        let finalResult = '';
+        if (this.state.ready) {
+            finalResult = this.state.allSets.map((set, index) => {
+                return <Results key={index} set={set} dish={sortedArr[index]}></Results>
+            })
+        }
+
+
         return (
             <div>
-                <form>
+                <div className={classes.UserLayout}>
+                    <h2><a href="/user">Search</a></h2>
+                    <form onSubmit={this.submitHandler}>
+                        <div className="form-group">
+                            <label htmlFor="set">Chosen set:</label>
+                            <input onChange={this.onChangeHandler} value={this.state.set} className="form-control" name="set" ref="set"></input>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="danger">I can't eat:</label>
+                            <br /><small>Please separate with comma or space</small>
+                            <input onChange={this.onChangeHandler} value={this.state.danger} className="form-control" name="danger" ref="danger"></input>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="warning">I dont't eat:</label>
+                            <br /><small>Please separate with comma or space</small>
+                            <input onChange={this.onChangeHandler} value={this.state.warning} className="form-control" name="warning" ref="warning"></input>
+                        </div>
+                        <input disabled={this.state.ready} className="btn btn-primary" type="submit"></input>
 
-                </form>
+                    </form>
+                    <button onClick={this.clearAll} className="btn btn-warning mt-2">Clear</button>
+                </div>
+                {finalResult}
             </div>
+
         )
     }
 }

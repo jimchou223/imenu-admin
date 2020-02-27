@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import classes from './DishForm.module.css'
 
-const URL = "https://imenu-server.herokuapp.com"
+require('dotenv').config()
+
 // const URL = "http://localhost:3001"
+const URL = "https://imenu-server.herokuapp.com"
+
 
 class Dishform extends Component {
     state = {

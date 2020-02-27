@@ -6,10 +6,10 @@ import axios from 'axios'
 
 import classes from './AdminLayout.module.css'
 
-// import Aux from '../../hoc/Aux'
 
-const URL = "https://imenu-server.herokuapp.com"
 // const URL = "http://localhost:3001"
+const URL = "https://imenu-server.herokuapp.com"
+
 
 
 class Layout extends Component {

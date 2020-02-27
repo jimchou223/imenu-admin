@@ -8,7 +8,7 @@ export default function Welcome(props) {
     return (
         <div className={classes.Welcome}>
             <div className={classes.Header}>
-                <h1>Welcome chef !!!</h1>
+                <h1>Welcome Chef !!!</h1>
             </div>
 
             <div className={classes.Wrapper}>

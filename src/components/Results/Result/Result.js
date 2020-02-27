@@ -14,7 +14,7 @@ const result = (props) => {
             icon = ''
             color = {color: "black"}
         }
-        return <p key={index} style={color}>{icon}{dish.dishName} {dish.status}</p>
+        return <p key={index} style={color}>{icon}{dish.dishName} {dish.type} {dish.ingredient}</p>
     })
     return (
         <div>

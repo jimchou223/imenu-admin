@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import axios from 'axios';
-
+import Top from '../Top/Top'
 import Results from '../Results/Results';
 
 import classes from './UserLayout.module.css';
@@ -20,10 +20,16 @@ class UserLayout extends Component {
         warning: '',
         dangerSets: '',
         warningSets: '',
-        ready: false
+        ready: false,
+        searchDone: false,
     }
 
     clearAll = () => {
+        const newArr = [...this.state.allDishes]
+
+        newArr.map(el => {
+            el.status = 'safe'
+        })
         this.setState({
             chosenSet: '',
             danger: '',
@@ -31,18 +37,20 @@ class UserLayout extends Component {
             dangerSets: '',
             warningSets: '',
             ready: false,
+            allDishes: newArr,
         })
     }
     clearSearch = () => {
 
         const newArr = [...this.state.allDishes]
-        newArr.forEach(el => {
+
+        newArr.map(el => {
             el.status = 'safe'
         })
         this.setState({
             dangerSets: '',
             warningSets: '',
-            ready: false,
+
             allDishes: newArr,
         })
     }
@@ -58,9 +66,9 @@ class UserLayout extends Component {
         })
             .then((response) => {
                 const data = response.data
-
                 this.setState({ allDishes: data })
-            });
+            })
+            .then(() => this.setState({ searchDone: true }))
     }
 
     componentDidMount = () => {
@@ -163,7 +171,7 @@ class UserLayout extends Component {
         return (
             <div>
                 <div className={classes.UserLayout}>
-                    <h2><a href="/user">Search</a></h2>
+                    <Top />
                     <form onSubmit={this.submitHandler}>
                         <div className="form-group">
                             <label htmlFor="set">Chosen set:</label>
@@ -179,12 +187,15 @@ class UserLayout extends Component {
                             <br /><small>Please separate with comma or space</small>
                             <input onChange={this.onChangeHandler} value={this.state.warning} className="form-control" name="warning" ref="warning"></input>
                         </div>
-                        <input disabled={this.state.ready} className="btn btn-primary" type="submit"></input>
+                        <input disabled={!this.state.searchDone} className="btn btn-primary" type="submit"></input>
 
                     </form>
                     <button onClick={this.clearAll} className="btn btn-warning mt-2">Clear</button>
                 </div>
-                {finalResult}
+                <div className={classes.Results}>
+                    {finalResult}
+                </div>
+
             </div>
 
         )

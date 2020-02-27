@@ -52,7 +52,7 @@ class DishForms extends Component {
                 dishDisplay = this.props.currentDishesArr.map((dish, index) => {
                     return (
                         <div className={classes.DishForms} key={index}>
-                            <h2 onClick={() => this.setDisplayIndexHandler(index)}>{dish.dishName} {this.state.displayArr[index] ? '▼' : '▲'}</h2>
+                            <h2 onClick={() => this.setDisplayIndexHandler(index)}>{dish.dishName} {this.state.displayArr[index] ? <i class="fas fa-angle-double-down"></i> : <i class="fas fa-angle-double-up"></i>}</h2>
                             <DishForm refresh={this.props.refresh} currentDishesArr={this.props.currentDishesArr[index]} displayIndex={this.state.displayArr[index]}></DishForm>
                         </div>
                     );

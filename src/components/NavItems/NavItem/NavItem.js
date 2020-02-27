@@ -3,7 +3,7 @@ import React from 'react'
 
 const navItem = (props) => {
     return(
-        <li onClick={props.clicked}>{props.children}</li>
+        <li style={{backgroundColor: props.active? "#235789" : "#161925"}} onClick={props.clicked}>{props.children}</li>
     );
 }
 

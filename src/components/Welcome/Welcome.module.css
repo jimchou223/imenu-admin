@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.Welcome h1{
+    color: #161925;
+}
+
 .Wrapper {
     display: flex;
     width: 100%;
@@ -23,25 +27,25 @@
 }
 
 .UserButton {
-    background-color: lightblue ;
+    background-color: #161925 ;
     width: 30%;
     text-align: center;
     vertical-align: middle;
     font-size: 3em;
     text-decoration: none;
-    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* "#235789" : "#161925" */
+
 .AdminButton {
-    background-color: lightgreen;
+    background-color: #235789;
     width: 30%;
     text-align: center;
     font-size: 3em;
     text-decoration: none;
-    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,23 +57,23 @@
     opacity: 0.8;
     font-size: 5em;
     text-decoration: none;
-    color: black
+
 }
 .AdminButton:hover {
     transition: 0.5s;
     opacity: 0.8;
     font-size: 5em;
     text-decoration: none;
-    color: black
+
 }
 
 .LogoutButton {
-    background-color: lightcoral;
+    background-color: #C1292E;
     width: 30%;
     text-align: center;
     font-size: 3em;
     text-decoration: none;
-    color: black;
+    color: #FDFFFC;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,6 +83,13 @@
 
 .Wrapper {
     justify-content: space-evenly
+}
+
+.Wrapper a{
+    color: #FDFFFC
+}
+.Wrapper a:hover{
+    color: #FDFFFC
 }
 
 .Bottom {
@@ -93,7 +104,7 @@
     font-size: 5em;
     opacity: 0.8;
     text-decoration: none;
-    color: black;
+    color: #FDFFFC;
     cursor: pointer;
 
 }

@@ -16,7 +16,7 @@ class Layout extends Component {
 
     state = {
         setsList: [],
-        currentSetIndex: 1,
+        currentSetIndex: '',
         currentDishIndex: null,
         currentDishesArr: [],
         currentDishArr: [],
@@ -66,7 +66,11 @@ class Layout extends Component {
         return (
             <div className={classes.AdminLayout}>
                 <Top />
-                <NavItems className={classes.NavItems} clicked={(index) => this.navClickedHandler(index)} navItemList={this.state.setsList}></NavItems>
+                <NavItems 
+                    className={classes.NavItems} 
+                    clicked={(index) => this.navClickedHandler(index)} 
+                    navItemList={this.state.setsList}
+                    currentSetIndex={this.state.currentSetIndex}></NavItems>
                 <Dishforms
                     className={classes.Dishforms}
                     currentDishArr={this.state.currentDishArr}

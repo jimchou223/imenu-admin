@@ -14,11 +14,12 @@
     /* background-color: aquamarine; */
     padding: 16px;
     text-align: center;
+
 }
 
 .DishForms h2:hover{
-    /* background-color: #1E90FF; */
-    border-radius: 5px;
+    cursor: pointer;
+    background-color: #235789
 }
 
 .DishForms form{

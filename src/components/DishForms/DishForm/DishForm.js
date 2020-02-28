@@ -60,7 +60,7 @@ class Dishform extends Component {
             data: obj
         })
             .then((response) => {
-                console.log(response)
+                window.location.href = "http://localhost:3000/admin"
             });
     }
 
@@ -72,7 +72,7 @@ class Dishform extends Component {
             data: obj
         })
             .then((response) => {
-                console.log(response)
+                window.location.href = "http://localhost:3000/admin"
             });
     }
 

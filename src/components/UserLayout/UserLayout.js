@@ -25,10 +25,9 @@ class UserLayout extends Component {
     }
 
     clearAll = () => {
-        const newArr = [...this.state.allDishes]
-
-        newArr.map(el => {
+        this.state.allDishes.map(el => {
             el.status = 'safe'
+            return true;
         })
         this.setState({
             chosenSet: '',
@@ -37,23 +36,9 @@ class UserLayout extends Component {
             dangerSets: '',
             warningSets: '',
             ready: false,
-            allDishes: newArr,
         })
     }
-    clearSearch = () => {
-
-        const newArr = [...this.state.allDishes]
-
-        newArr.map(el => {
-            el.status = 'safe'
-        })
-        this.setState({
-            dangerSets: '',
-            warningSets: '',
-
-            allDishes: newArr,
-        })
-    }
+    
 
     onChangeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value })
@@ -114,7 +99,6 @@ class UserLayout extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        // this.clearSearch()
         if (this.state.danger !== '') {
             this.sendFetch(this.state.chosenSet, this.state.danger, 'danger')
         }
@@ -124,8 +108,8 @@ class UserLayout extends Component {
     }
 
     verifyStatus = (input, filter, type) => {
-        const newArr = [...input]
-        newArr.map(el => {
+       
+        input.map(el => {
             for (let i = 0; i < filter.length; i++) {
                 if (el._id === filter[i]._id) {
                     el.status = type
@@ -138,7 +122,6 @@ class UserLayout extends Component {
             }
             return true;
         })
-        this.setState({ input: newArr })
 
     }
 
@@ -187,10 +170,13 @@ class UserLayout extends Component {
                             <br /><small>Please separate with comma or space</small>
                             <input onChange={this.onChangeHandler} value={this.state.warning} className="form-control" name="warning" ref="warning"></input>
                         </div>
-                        <input disabled={!this.state.searchDone} className="btn btn-primary" type="submit"></input>
+                        <small>Need to clear before a new search</small>
+                        <br/><input disabled={this.state.searchDone && (this.state.dangerSets.length !== 0 || this.state.warningSets.length !==0)} className="btn btn-primary" type="submit"></input>
+                        
 
                     </form>
                     <button onClick={this.clearAll} className="btn btn-warning mt-2">Clear</button>
+                    
                 </div>
                 <div className={classes.Results}>
                     {finalResult}

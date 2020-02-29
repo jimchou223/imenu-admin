@@ -20,6 +20,10 @@ export default withAuth(class Login extends Component {
         if (authenticated !== this.state.authenticated) {
             this.setState({ authenticated });
         }
+        if (authenticated && !this.state.userinfo) {
+            const userinfo = await this.props.auth.getUser();
+            this.setState({ userinfo });
+        }
     }
 
     componentDidUpdate() {

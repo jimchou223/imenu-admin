@@ -28,16 +28,26 @@ class DishForms extends Component {
     }
 
     // synchronize the props.loading and state.
-    componentWillUpdate(nextProps) {
-        if (nextProps.loading !== this.props.loading) {
-            this.setState({ loading: nextProps.loading })
+    componentDidUpdate(prevProps) {
+        if (this.props.loading !== prevProps.loading) {
+            this.setState({ loading: this.props.loading })
         }
 
         // 
-        if (nextProps.currentSetIndex !== this.props.currentSetIndex) {
+        if (this.props.currentSetIndex !== prevProps.currentSetIndex) {
             this.setState({ displayArr: [] });
         }
     }
+    // componentWillUpdate(nextProps) {
+    //     if (nextProps.loading !== this.props.loading) {
+    //         this.setState({ loading: nextProps.loading })
+    //     }
+
+    //     // 
+    //     if (nextProps.currentSetIndex !== this.props.currentSetIndex) {
+    //         this.setState({ displayArr: [] });
+    //     }
+    // }
 
 
 
@@ -52,7 +62,7 @@ class DishForms extends Component {
                 dishDisplay = this.props.currentDishesArr.map((dish, index) => {
                     return (
                         <div className={classes.DishForms} key={index}>
-                            <h2 onClick={() => this.setDisplayIndexHandler(index)}>{dish.dishName} {this.state.displayArr[index] ? <i class="fas fa-angle-double-down"></i> : <i class="fas fa-angle-double-up"></i>}</h2>
+                            <h2 onClick={() => this.setDisplayIndexHandler(index)}>{dish.dishName} {this.state.displayArr[index] ? <i className="fas fa-angle-double-down"></i> : <i className="fas fa-angle-double-up"></i>}</h2>
                             <DishForm refresh={this.props.refresh} currentDishesArr={this.props.currentDishesArr[index]} displayIndex={this.state.displayArr[index]}></DishForm>
                         </div>
                     );

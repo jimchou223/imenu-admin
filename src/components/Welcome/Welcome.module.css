@@ -1,123 +1,116 @@
 .Welcome {
-    height: 100vh;
-    text-align: center;
+  height: 100vh;
+  text-align: center;
 }
 
-.Welcome h1{
-    color: #161925;
+.Welcome h1 {
+  color: #161925;
 }
 
 .Wrapper {
-    display: flex;
-    width: 100%;
-    /* background-color: aqua; */
-    height: 20%;
-
+  display: flex;
+  width: 100%;
+  /* background-color: aqua; */
+  height: 20%;
 }
 
 .Header {
-    height: 15%;
-    font-size: 5em
-
+  height: 15%;
+  font-size: 5em;
 }
 
-.Wrapper a, .Wrapper a:hover {
-
-    text-decoration: none;
-    color: black
+.Wrapper a,
+.Wrapper a:hover {
+  text-decoration: none;
+  color: black;
 }
 
 .UserButton {
-    background-color: #161925 ;
-    width: 30%;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 3em;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: #161925;
+  width: 30%;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 3em;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* "#235789" : "#161925" */
 
 .AdminButton {
-    background-color: #235789;
-    width: 30%;
-    text-align: center;
-    font-size: 3em;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+  background-color: #235789;
+  width: 30%;
+  text-align: center;
+  font-size: 3em;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.UserButton:hover {
-    transition: 0.5s;
-    opacity: 0.8;
-    font-size: 5em;
-    text-decoration: none;
-
-}
+.UserButton:hover,
 .AdminButton:hover {
-    transition: 0.5s;
-    opacity: 0.8;
-    font-size: 5em;
-    text-decoration: none;
-
+  font-size: 5em;
+  text-decoration: none;
+  transition: 0.5s;
+  opacity: 0.8;
 }
+
 
 .LogoutButton {
-    background-color: #C1292E;
-    width: 30%;
-    text-align: center;
-    font-size: 3em;
-    text-decoration: none;
-    color: #FDFFFC;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: #c1292e;
+  width: 30%;
+  text-align: center;
+  font-size: 3em;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-
+.LogoutButton button {
+  background-color: #c1292e;
+  border: none;
+  color: #fdfffc;
 }
 
 .Wrapper {
-    justify-content: space-evenly
+  justify-content: space-evenly;
 }
 
-.Wrapper a{
-    color: #FDFFFC
+.Wrapper a {
+  color: #fdfffc;
 }
-.Wrapper a:hover{
-    color: #FDFFFC
+.Wrapper a:hover {
+  color: #fdfffc;
 }
 
 .Bottom {
-    width: 60%;
-    font-size: 3em;
-    height: 15%;
-    background-color: lightblue;
+  width: 60%;
+  font-size: 3em;
+  height: 15%;
+  background-color: lightblue;
 }
 
 .LogoutButton:hover {
-    transition: 0.5s;
-    font-size: 5em;
-    opacity: 0.8;
-    text-decoration: none;
-    color: #FDFFFC;
-    cursor: pointer;
-
+  transition: 0.5s;
+  font-size: 5em;
+  opacity: 0.8;
+  text-decoration: none;
+  color: #fdfffc;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 500px) {
-    .Wrapper {
-        flex-flow: column;
-    }
-    .UserButton, .AdminButton, .LogoutButton {
-        width: auto;
-    }
-    .LogoutButton {
-        height: 72px;
-    }
+  .Wrapper {
+    flex-flow: column;
+  }
+  .UserButton,
+  .AdminButton,
+  .LogoutButton {
+    width: auto;
+  }
+
 }

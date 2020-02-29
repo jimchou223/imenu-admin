@@ -3,6 +3,8 @@ import Top from '../Top/Top'
 import NavItems from '../NavItems/NavItems';
 import Dishforms from '../DishForms/DishForms'
 import axios from 'axios'
+import Aux from '../../hoc/Aux'
+import UploadFile from '../UploadFile/UploadFile'
 
 import classes from './AdminLayout.module.css'
 
@@ -43,7 +45,7 @@ class Layout extends Component {
     }
 
     getCurrentDishesArr = (setName) => {
-        this.setState({loading: true})
+        this.setState({ loading: true })
         axios({
             method: 'post',
             url: URL + '/findDishes',
@@ -64,20 +66,28 @@ class Layout extends Component {
     render() {
 
         return (
-            <div className={classes.AdminLayout}>
-                <Top />
-                <NavItems 
-                    className={classes.NavItems} 
-                    clicked={(index) => this.navClickedHandler(index)} 
-                    navItemList={this.state.setsList}
-                    currentSetIndex={this.state.currentSetIndex}></NavItems>
-                <Dishforms
-                    className={classes.Dishforms}
-                    currentDishArr={this.state.currentDishArr}
-                    currentDishesArr={this.state.currentDishesArr}
-                    currentSetIndex={this.state.currentSetIndex}
-                    loading={this.state.loading} />
-            </div>
+            <Aux>
+
+                <div className={classes.AdminLayout}>
+                    <Top />
+
+                    <NavItems
+                        className={classes.NavItems}
+                        clicked={(index) => this.navClickedHandler(index)}
+                        navItemList={this.state.setsList}
+                        currentSetIndex={this.state.currentSetIndex}></NavItems>
+                    <UploadFile className={classes.UploadFile}></UploadFile>
+                    <Dishforms
+                        className={classes.Dishforms}
+                        currentDishArr={this.state.currentDishArr}
+                        currentDishesArr={this.state.currentDishesArr}
+                        currentSetIndex={this.state.currentSetIndex}
+                        loading={this.state.loading} />
+
+                </div>
+
+            </Aux>
+
         );
     }
 }

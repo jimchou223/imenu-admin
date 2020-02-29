@@ -22,7 +22,8 @@ function onAuthRequired({ history }) {
 function App() {
   return (
     <Router>
-      <Security Security issuer={process.env.REACT_APP_ISSUER}
+      <Security 
+        issuer={process.env.REACT_APP_ISSUER}
         clientId={process.env.REACT_APP_TOKEN}
         redirectUri={window.location.origin + '/implicit/callback'}
         onAuthRequired={onAuthRequired}

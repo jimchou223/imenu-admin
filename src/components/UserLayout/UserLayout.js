@@ -6,9 +6,8 @@ import Results from '../Results/Results';
 
 import classes from './UserLayout.module.css';
 
-// const URL = "http://localhost:3001"
-const URL = "https://imenu-server.herokuapp.com"
-
+// const LOCAL_SERVERURL = "http://localhost:3001"
+const NET_SERVER_URL = "https://imenu-server.herokuapp.com"
 
 
 class UserLayout extends Component {
@@ -47,7 +46,7 @@ class UserLayout extends Component {
     findAllDishes = () => {
         axios({
             method: 'get',
-            url: URL + '/findalldishes',
+            url: NET_SERVER_URL + '/findalldishes',
         })
             .then((response) => {
                 const data = response.data
@@ -64,7 +63,7 @@ class UserLayout extends Component {
     findallSets = () => {
         axios({
             method: 'get',
-            url: URL + '/findallsets',
+            url: NET_SERVER_URL + '/findallsets',
         })
             .then((response) => {
                 const data = response.data
@@ -75,7 +74,7 @@ class UserLayout extends Component {
     sendFetch = (set, ingredient, type) => {
         axios({
             method: 'post',
-            url: URL + '/filterdishes',
+            url: NET_SERVER_URL + '/filterdishes',
             data: {
                 set: set,
                 ingredient: ingredient,

@@ -9,8 +9,9 @@ import UploadFile from '../UploadFile/UploadFile'
 import classes from './AdminLayout.module.css'
 
 
-// const URL = "http://localhost:3001"
-const URL = "https://imenu-server.herokuapp.com"
+// const LOCAL_SERVERURL = "http://localhost:3001"
+const NET_SERVER_URL = "https://imenu-server.herokuapp.com"
+
 
 
 
@@ -36,7 +37,7 @@ class Layout extends Component {
         this.setState({ loading: true })
         axios({
             method: 'get',
-            url: URL + '/findallsets',
+            url: NET_SERVER_URL + '/findallsets',
         })
             .then((response) => {
                 const data = response.data
@@ -48,7 +49,7 @@ class Layout extends Component {
         this.setState({ loading: true })
         axios({
             method: 'post',
-            url: URL + '/findDishes',
+            url: NET_SERVER_URL + '/findDishes',
             data: {
                 setName: setName
             }

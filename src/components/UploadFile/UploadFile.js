@@ -3,7 +3,9 @@ import axios from 'axios';
 import classes from './UploadFile.module.css'
 const uuidv4 = require('uuid/v4')
 
-const URL = "http://localhost:3001"
+// const LOCAL_SERVERURL = "http://localhost:3001"
+const NET_SERVER_URL = "https://imenu-server.herokuapp.com"
+
 
 class UploadFile extends Component {
     state = {
@@ -52,7 +54,7 @@ class UploadFile extends Component {
         const dishArr = this.state.uploadDishes
         axios({
             method: 'post',
-            url: URL + '/addnewdishes',
+            url: NET_SERVER_URL + '/addnewdishes',
             data: {
                 dishArr: dishArr
             }

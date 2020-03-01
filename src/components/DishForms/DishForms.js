@@ -26,6 +26,11 @@ class DishForms extends Component {
         newArr[index] = !newArr[index]
         this.setState({ displayArr: newArr })
     }
+    onDragStart = (e, id) => {
+        console.log(id)
+        e.dataTransfer.setData('id', id)
+    }
+
 
     // synchronize the props.loading and state.
     componentDidUpdate(prevProps) {
@@ -61,7 +66,11 @@ class DishForms extends Component {
             } else {
                 dishDisplay = this.props.currentDishesArr.map((dish, index) => {
                     return (
-                        <div className={classes.DishForms} key={index}>
+                        <div
+                            className={classes.DishForms}
+                            draggable 
+                            onDragStart={(e) => this.onDragStart(e, dish.id)}
+                            key={index}>
                             <h2 onClick={() => this.setDisplayIndexHandler(index)}>{dish.dishName} {this.state.displayArr[index] ? <i className="fas fa-angle-double-down"></i> : <i className="fas fa-angle-double-up"></i>}</h2>
                             <DishForm refresh={this.props.refresh} currentDishesArr={this.props.currentDishesArr[index]} displayIndex={this.state.displayArr[index]}></DishForm>
                         </div>

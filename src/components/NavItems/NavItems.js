@@ -14,8 +14,6 @@ class NavItems extends Component {
         e.preventDefault()
     }
     onDrop = (e) => {
-        console.log(e.dataTransfer.getData("id"))
-        console.log(e.currentTarget.innerHTML)
         const id = e.dataTransfer.getData("id")
         var myRe = new RegExp('>(.*)<');
         var myReArr = myRe.exec(e.currentTarget.innerHTML);
@@ -32,13 +30,9 @@ class NavItems extends Component {
             }
         })
             .then((response) => {
-
                 const data = response.data
-                console.log(data)
                 data[0].setName = newSetName
                 this.updateDish(data[0])
-                // console.log(data[0])
-
             })
             .then(() => window.location.href = NET_WEBPAGE_URL)
     }

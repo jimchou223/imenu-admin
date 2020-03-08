@@ -84,7 +84,7 @@ class Dishform extends Component {
             data: obj
         })
             .then((response) => {
-                console.log(response)
+                window.location.href = REDIRECT_URL
             });
     }
 

@@ -6,6 +6,7 @@ import Results from '../Results/Results';
 
 import classes from './UserLayout.module.css';
 
+
 // const LOCAL_SERVERURL = "http://localhost:3001"
 const NET_SERVER_URL = "https://imenu-server.herokuapp.com"
 
@@ -20,7 +21,7 @@ class UserLayout extends Component {
         dangerSets: '',
         warningSets: '',
         ready: false,
-        searchDone: false,
+        canSearch: true,
     }
 
     clearAll = () => {
@@ -35,9 +36,10 @@ class UserLayout extends Component {
             dangerSets: '',
             warningSets: '',
             ready: false,
+            canSearch: true
         })
     }
-    
+
 
     onChangeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value })
@@ -52,7 +54,7 @@ class UserLayout extends Component {
                 const data = response.data
                 this.setState({ allDishes: data })
             })
-            .then(() => this.setState({ searchDone: true }))
+            // .then(() => this.setState({ canSearch: false }))
     }
 
     componentDidMount = () => {
@@ -92,7 +94,7 @@ class UserLayout extends Component {
                 this.verifyStatus(this.state.allDishes, this.state.dangerSets, "danger")
             })
             .then(() => {
-                this.setState({ ready: true })
+                this.setState({ ready: true, canSearch: false })
             })
     }
 
@@ -107,7 +109,7 @@ class UserLayout extends Component {
     }
 
     verifyStatus = (input, filter, type) => {
-       
+
         input.map(el => {
             for (let i = 0; i < filter.length; i++) {
                 if (el._id === filter[i]._id) {
@@ -143,10 +145,24 @@ class UserLayout extends Component {
         }
 
         let finalResult = '';
-        if (this.state.ready) {
+        if (this.state.ready && this.state.chosenSet === '') {
             finalResult = this.state.allSets.map((set, index) => {
                 return <Results key={index} set={set} dish={sortedArr[index]}></Results>
             })
+        } else if (this.state.ready && this.state.chosenSet !== '') {
+            let filteredSets = []
+            this.state.allDishes.map((el) => {
+                if (el.setName === this.state.chosenSet) {
+                    filteredSets.push(el)
+                }
+                return true;
+            })
+
+            finalResult = <Results key={this.state.chosenSet} set={this.state.chosenSet} dish={filteredSets}></Results>
+
+            // finalResult = filteredSets.map((set, index) => {
+            //     return <Results key={index} dish={set}></Results>
+            // })
         }
 
 
@@ -154,11 +170,17 @@ class UserLayout extends Component {
             <div>
                 <div className={classes.UserLayout}>
                     <Top />
-                    <form onSubmit={this.submitHandler}>
+                    <form onSubmit={this.submitHandler} >
                         <div className="form-group">
-                            <label htmlFor="set">Chosen set:</label>
-                            <input onChange={this.onChangeHandler} value={this.state.set} className="form-control" name="set" ref="set"></input>
+                            <select className="custom-select" name="chosenSet" ref="chosenSet" value={this.state.chosenSet} onChange={this.onChangeHandler}>
+                                <option value="-----">----</option>
+                                {this.state.allSets.map(set => <option key={set} value={set}>{set}</option>)}
+                            </select>
                         </div>
+                        {/* <div className="form-group">
+                            <label htmlFor="set">Chosen set:</label>
+                            <input type={} onChange={this.onChangeHandler} value={this.state.set} className="form-control" name="set" ref="set"></input>
+                        </div> */}
                         <div className="form-group">
                             <label htmlFor="danger">I can't eat:</label>
                             <br /><small>Please separate with comma or space</small>
@@ -170,12 +192,13 @@ class UserLayout extends Component {
                             <input onChange={this.onChangeHandler} value={this.state.warning} className="form-control" name="warning" ref="warning"></input>
                         </div>
                         <small>Need to clear before a new search</small>
-                        <br/><input disabled={this.state.searchDone && (this.state.dangerSets.length !== 0 || this.state.warningSets.length !==0)} className="btn btn-primary" type="submit"></input>
-                        
+                        {/* <br /><input disabled={this.state.canSearch && (this.state.dangerSets.length !== 0 || this.state.warningSets.length !== 0)} className="btn btn-primary" type="submit"></input> */}
+                        <br /><input disabled={!this.state.canSearch} className="btn btn-primary" type="submit"></input>
+
 
                     </form>
                     <button onClick={this.clearAll} className="btn btn-warning mt-2">Clear</button>
-                    
+
                 </div>
                 <div className={classes.Results}>
                     {finalResult}

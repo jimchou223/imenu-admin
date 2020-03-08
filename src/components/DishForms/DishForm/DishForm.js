@@ -60,7 +60,7 @@ class Dishform extends Component {
             data: obj
         })
             .then((response) => {
-                window.location.href = "http://localhost:3000/admin"
+                window.location.href =  REDIRECT_URL
             });
     }
 

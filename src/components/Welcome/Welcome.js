@@ -6,6 +6,8 @@ import classes from './Welcome.module.css'
 import { withAuth } from '@okta/okta-react';
 import { checkAuthentication } from './helpers';
 
+
+
 export default withAuth(class Profile extends Component {
     constructor(props) {
         super(props);
@@ -47,8 +49,13 @@ export default withAuth(class Profile extends Component {
         return (
             <div className={classes.Welcome}>
                 <div className={classes.Header}>
-                    <h1>Welcome {username} </h1>
+                    <h1>Welcome {username}</h1>
+                    <Logout className="Logout-btn"></Logout>
+
                 </div>
+
+
+
 
                 <div className={classes.Wrapper}>
                     <div className={classes.UserButton} style={{ display: display }}>
@@ -59,9 +66,7 @@ export default withAuth(class Profile extends Component {
                         <Link to='/admin'>Admin</Link>
                     </div>
 
-                    <div className={classes.LogoutButton} style={{ display: display}}>
-                        <Logout ></Logout>
-                    </div>
+
 
                 </div>
             </div>

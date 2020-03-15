@@ -54,11 +54,14 @@ class UserLayout extends Component {
                 const data = response.data
                 this.setState({ allDishes: data })
             })
-            // .then(() => this.setState({ canSearch: false }))
+        // .then(() => this.setState({ canSearch: false }))
     }
 
-    componentDidMount = () => {
+    componentWillMount = () => {
         this.findallSets()
+    }
+    componentDidMount = () => {
+
         this.findAllDishes()
     }
 

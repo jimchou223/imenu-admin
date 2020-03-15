@@ -154,4 +154,7 @@ button {
   .LogoutButton {
     width: auto;
   }
+  .Welcome::after {
+    background: linear-gradient(45deg, #235789, #ccc,  #235789)
+  }
 }

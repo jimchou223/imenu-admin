@@ -6,7 +6,7 @@ require('dotenv').config()
 
 // const URL = "http://localhost:3001"
 const URL = "https://imenu-server.herokuapp.com"
-const REDIRECT_URL = "https://imenubyjim.netlify.app/admin"
+const REDIRECT_URL = "https://imenubyjim.netlify.app"
 
 class Dishform extends Component {
     state = {

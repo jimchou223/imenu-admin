@@ -7,7 +7,7 @@ import axios from 'axios'
 
 // const LOCAL_SERVERURL = "http://localhost:3001"
 const NET_SERVER_URL = "https://imenu-server.herokuapp.com"
-const NET_WEBPAGE_URL = "https://imenubyjim.netlify.com/admin"
+const NET_WEBPAGE_URL = "https://imenubyjim.netlify.app/admin"
 
 class NavItems extends Component {
     onDragOver = (e) => {

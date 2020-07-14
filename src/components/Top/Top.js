@@ -6,7 +6,7 @@ import classes from './Top.module.css'
 const top = (props) => {
     return (
         <div className={classes.Top}>
-            <Link to="/">Home</Link>
+            <Link to="/">Back to Home</Link>
         </div>
     );
 }

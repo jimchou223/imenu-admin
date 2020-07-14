@@ -175,6 +175,9 @@ class UserLayout extends Component {
                     <Top />
                     <form onSubmit={this.submitHandler} >
                         <div className="form-group">
+                            <label htmlFor="chosenSet">套餐選擇:</label>
+                            <br />
+                            <small>預設為搜尋全部的套餐</small>
                             <select className="custom-select" name="chosenSet" ref="chosenSet" value={this.state.chosenSet} onChange={this.onChangeHandler}>
                                 <option value="-----">----</option>
                                 {this.state.allSets.map(set => <option key={set} value={set}>{set}</option>)}
@@ -185,24 +188,27 @@ class UserLayout extends Component {
                             <input type={} onChange={this.onChangeHandler} value={this.state.set} className="form-control" name="set" ref="set"></input>
                         </div> */}
                         <div className="form-group">
-                            <label htmlFor="danger">I can't eat:</label>
-                            <br /><small>Please separate with comma or space</small>
+                            <label htmlFor="danger">我不能吃（例：肉、魚）</label>
+                            <br /><small>各食材請用逗號或是空白鍵分開</small>
                             <input onChange={this.onChangeHandler} value={this.state.danger} className="form-control" name="danger" ref="danger"></input>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="warning">I dont't eat:</label>
-                            <br /><small>Please separate with comma or space</small>
+                            <label htmlFor="warning">我不想吃（例：蛋）</label>
+                            <br /><small>各食材請用逗號或是空白鍵分開</small>
                             <input onChange={this.onChangeHandler} value={this.state.warning} className="form-control" name="warning" ref="warning"></input>
                         </div>
-                        <small>Need to clear before a new search</small>
+
                         {/* <br /><input disabled={this.state.canSearch && (this.state.dangerSets.length !== 0 || this.state.warningSets.length !== 0)} className="btn btn-primary" type="submit"></input> */}
                         <br /><input disabled={!this.state.canSearch} className="btn btn-primary" type="submit"></input>
 
 
                     </form>
-                    <button onClick={this.clearAll} className="btn btn-warning mt-2">Clear</button>
+                    <button onClick={this.clearAll} className="btn btn-warning mt-2">清除</button>
+                    <br />
+                    <small>在重新開始新的搜尋前請先按下清除鈕</small>
 
                 </div>
+
                 <div className={classes.Results}>
                     {finalResult}
                 </div>
